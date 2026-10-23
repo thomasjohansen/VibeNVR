@@ -1,0 +1,12 @@
+# Optional archive storage override for Portainer Git-managed stacks.
+# Add this file under Additional paths after your production Compose file.
+# Set VIBENVR_STORAGE_NAS to the existing NAS mount path on the Docker host.
+
+services:
+  backend:
+    volumes:
+      - "${VIBENVR_STORAGE_NAS:?Set VIBENVR_STORAGE_NAS}:/storage/archive"
+
+  engine:
+    volumes:
+      - "${VIBENVR_STORAGE_NAS:?Set VIBENVR_STORAGE_NAS}:/storage/archive"
